@@ -1,9 +1,7 @@
-import { he } from "zod/locales";
-
 export async function serverFetch<T>(
   url: string,
   options?: RequestInit
-): Promise<T | undefined> {
+): Promise<T | null> {
   const headers = {
     "Content-Type": "application/json",
     "Cache-Control": "no-cache",
@@ -26,7 +24,7 @@ export async function serverFetch<T>(
     }
 
     if (response.status === 204) {
-      return;
+      return null;
     }
 
     const data: T = await response.json();
