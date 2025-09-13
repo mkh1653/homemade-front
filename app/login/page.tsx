@@ -6,7 +6,7 @@ const LoginPage = async () => {
   const cookieStore = await cookies();
   const token = cookieStore.get("access_token");
   if (token && token.value.length > 0) {
-    redirect("/dashboard");
+    // redirect("/dashboard");
   }
   return <LoginForm />;
 };

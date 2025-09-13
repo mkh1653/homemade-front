@@ -27,7 +27,7 @@ export default async function DashboardLayout({
     }
   }
   if (!token || token.length === 0) {
-    redirect("/login");
+    // redirect("/login");
   }
   return (
     <Providers>
