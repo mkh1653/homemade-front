@@ -10,7 +10,7 @@ import { convertNumbersToPersian } from "@/lib/utils/englishNumberToPersian";
 import Modal from "../../../components/Modal";
 
 interface SpecialtyListProps {
-  initialSpecialties: Specialty[] | undefined;
+  initialSpecialties: Specialty[] | null;
   onEdit: (specialty: Specialty) => void;
 }
 

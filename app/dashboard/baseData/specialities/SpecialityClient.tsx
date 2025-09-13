@@ -7,7 +7,7 @@ import SpecialtyList from "./components/SpecialtyList";
 import Modal from "../../components/Modal";
 
 interface Props {
-  initialSpecialties: Specialty[] | undefined;
+  initialSpecialties: Specialty[] | null;
 }
 
 export default function SpecialtyClient({ initialSpecialties }: Props) {
