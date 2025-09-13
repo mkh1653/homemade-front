@@ -18,6 +18,6 @@ export default async function Cityage() {
   const token = cookieStore.get("access_token")?.value;
   if (token) {
     const cities = await getCities();
-    return <CityWrapper initialCities={cities} />;
   }
+  return <CityWrapper initialCities={undefined} />;
 }
