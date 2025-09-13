@@ -1,5 +1,5 @@
 import React from "react";
-import { cookies } from "next/headers";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
@@ -11,9 +11,22 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = await cookies();
-  const token = cookieStore.get("access_token");
-  if (!token || token!.value.length === 0) {
+  const headersList = await headers();
+  const cookieHeader = headersList.get("cookie");
+  let token = null;
+
+  if (cookieHeader) {
+    const cookiesArray = cookieHeader.split(";").map((cookie) => cookie.trim());
+    const accessTokenCookie = cookiesArray.find((cookie) =>
+      cookie.startsWith("access_token=")
+    );
+
+    if (accessTokenCookie) {
+      token = accessTokenCookie.split("=")[1];
+      console.log(token)
+    }
+  }
+  if (!token || token.length === 0) {
     redirect("/login");
   }
   return (
