@@ -5,7 +5,7 @@ import { serverFetch } from "@/lib/serverApi";
 import { cookies } from "next/headers";
 
 export async function getProvinces(
-  token: string
+  token?: string
 ): Promise<Province[] | undefined> {
   const response = await serverFetch<Province[]>("/province", {
     headers: {

@@ -4,7 +4,7 @@ import CityWrapper from "./CityWrapper";
 import { serverFetch } from "@/lib/serverApi";
 import { cookies } from "next/headers";
 
-export async function getCities(token: string): Promise<City[] | undefined> {
+export async function getCities(token?: string): Promise<City[] | undefined> {
   const response = await serverFetch<City[]>("/city", {
     headers: {
       Authorization: `Bearer ${token}`,
