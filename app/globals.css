@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+  themes: sunset --default;
+  exclude: rootscrollgutter;
+}
+/* @plugin "daisyui/theme" {
+  name: "mytheme";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  --color-base-100: oklch(97% 0.02 240);
+  --color-base-200: oklch(92% 0.02 240);
+  --color-base-300: oklch(87% 0.02 240);
+  --color-base-content: oklch(20% 0.1 260);
+  
+  --color-primary: oklch(20% 0.1 260);
+  --color-primary-content: oklch(95% 0.02 240);
+
+  --color-secondary: oklch(75% 0.15 150);
+  --color-secondary-content: oklch(20% 0.1 260);
+
+  --color-accent: oklch(80% 0.25 90);
+  --color-accent-content: oklch(20% 0.1 260);
+
+  --color-neutral: oklch(55% 0.05 240);
+  --color-neutral-content: oklch(95% 0.02 240);
+
+  --color-info: oklch(65% 0.2 220);
+  --color-info-content: oklch(95% 0.02 240);
+
+  --color-success: oklch(60% 0.25 140);
+  --color-success-content: oklch(95% 0.02 240);
+
+  --color-warning: oklch(60% 0.25 60);
+  --color-warning-content: oklch(95% 0.02 240);
+
+  --color-error: oklch(60% 0.3 30);
+  --color-error-content: oklch(95% 0.02 240);
+} */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+body,
+* {
+  font-family: "Vazirmatn", Arial, Helvetica, sans-serif !important;
+}
+
+input:focus {
+  outline: none;
+}
+
+.rmdp-wrapper {
+  @apply w-80! h-auto! bg-base-100! text-base-content! border-0! rounded-lg! shadow-none!;
+}
+
+.rmdp-wrapper * {
+  @apply text-base! text-base-content!;
+}
+
+.rmdp-week-day {
+  @apply text-primary!;
+}
+
+.rmdp-month-picker,
+.rmdp-year-picker {
+  @apply bg-base-100!;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  @apply shadow-none! bg-primary! text-primary-content!;
+}
+
+.rmdp-mobile .rmdp-day,
+.rmdp-mobile .rmdp-week-day {
+  @apply w-10! h-10!;
+}
+
+.rmdp-mobile .rmdp-header,
+.rmdp-mobile .rmdp-panel-header {
+  @apply h-8! pb-4!;
+}
+
+.rmdp-day:not(
+    .rmdp-disabled,
+    .rmdp-day-hidden,
+    .rmdp-today,
+    .rmdp-selected,
+    .rmdp-range
+  )
+  span:hover {
+  @apply bg-base-200! text-base-content!;
+}
+
+.rmdp-day.rmdp-disabled span {
+  @apply opacity-40;
+}
+
+.rmdp-today span {
+  @apply bg-accent! text-accent-content!;
+}
+
+.rmdp-calendar {
+  @apply w-full!;
+}
+
+.rmdp-day-picker > *,
+.rmdp-month-picker > *,
+.rmdp-year-picker {
+  @apply w-full! min-h-60;
+}
+
+.rmdp-calendar > div:not(.rmdp-header) {
+  @apply mt-4!;
+}
+
+.rmdp-header {
+  @apply mt-0! pt-0!;
+}
+
+.rmdp-week .rmdp-range {
+  @apply bg-primary! text-primary-content!  shadow-[4px_0_0]! shadow-primary!;
+}
+
+.rmdp-week .rmdp-range:nth-last-child(1) {
+  @apply rounded-l-full
+}
+
+.rmdp-week .rmdp-range:nth-child(1) {
+  @apply rounded-r-full
+}
+
+.rmdp-range span:hover,
+.rmdp-range span {
+  @apply bg-primary! text-primary-content!;
+}
